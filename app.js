@@ -1,9 +1,24 @@
 const input = document.getElementById('input')
-const display = document.getElementById('lista-tarefa')
+const display = document.getElementById('lista-tarefas')
 const button = document.getElementById('button')
 
 function inserirTarefa(){
-    display.innerHTML = input.value
+    let tarefa = input.value
+    display.innerHTML += 
+    `<div class = "tarefa">
+        ${tarefa} 
+        <div class = "buttons">
+            <button class="delete">apagar</button>
+            <button class="edit">editar</button>
+        </div>
+    </div>`
+
+    input.value = ''
 }
 
-button.addEventListener("click", inserirTarefa)
+if(input.value == ''){
+    alert('Por favor, insira uma tarefa')
+}else{
+    button.addEventListener("click", inserirTarefa)
+}
+
